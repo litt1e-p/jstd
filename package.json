@@ -1,0 +1,45 @@
+{
+  "name": "jstd",
+  "version": "0.0.1",
+  "description": "js utilities lib",
+  "config": {
+    "libName": "jstd"
+  },
+  "keywords": [
+    "jstd",
+    "std",
+    "lib",
+    "lodash",
+    "util",
+    "stdlib"
+  ],
+  "author": "litt1e-p",
+  "license": "MIT",
+  "main": "dist/jstd.umd.js",
+  "module": "dist/jstd.esm.js",
+  "unpkg": "dist/jstd.min.js",
+  "scripts": {
+    "test": "ava"
+  },
+  "ava": {
+    "files": [
+      "test/**/*.js"
+    ],
+    "require": [
+      "esm"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/litt1e-p/jstd.git"
+  },
+  "bugs": {
+    "url": "https://github.com/litt1e-p/jstd/issues"
+  },
+  "homepage": "https://github.com/litt1e-p/jstd#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "ava": "^3.13.0",
+    "esm": "^3.2.25"
+  }
+}
