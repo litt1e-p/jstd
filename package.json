@@ -1,6 +1,6 @@
 {
   "name": "jstd",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "js utilities lib",
   "config": {
     "libName": "jstd"
