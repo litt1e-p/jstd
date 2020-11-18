@@ -2,7 +2,7 @@ import { arrayable, arrayUnique, arrValsCount, arrValCount } from './array/index
 import { _btoa, _atob } from './buffer/base64';
 import { url2Blob, str2Buffer, buffer2Str } from './buffer/index';
 import { typeis, re } from './common/index';
-import { formatDate } from './date/index';
+import { formatDate, timezoneDate } from './date/index';
 import { Types, TypesDesc, inEnum } from './enum/index';
 import { mappable } from './map/index';
 import { rangeRandom, numberic } from './math/index';
@@ -11,4 +11,4 @@ import { isNil, isNull, isUndefined, isNumberic } from './regexp/index';
 import { sleep } from './eventloop/index';
 import { settable } from './set/index';
 import { stringable, strLen } from './string/index';
-export { arrayable, arrayUnique, arrValsCount, arrValCount, _btoa, _atob, url2Blob, str2Buffer, buffer2Str, typeis, re, formatDate, Types, TypesDesc, inEnum, mappable, rangeRandom, numberic, objectable, optional, extractable, assign, objReverse, isNil, isNull, isUndefined, isNumberic, sleep, settable, stringable, strLen };
+export { arrayable, arrayUnique, arrValsCount, arrValCount, _btoa, _atob, url2Blob, str2Buffer, buffer2Str, typeis, re, formatDate, timezoneDate, Types, TypesDesc, inEnum, mappable, rangeRandom, numberic, objectable, optional, extractable, assign, objReverse, isNil, isNull, isUndefined, isNumberic, sleep, settable, stringable, strLen };

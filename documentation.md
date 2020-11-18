@@ -88,6 +88,13 @@ Date format
 formatDate(date?: Date | string, format = 'yyyy-MM-dd hh:mm:ss'): string
 ```
 
+### 3.2 timezoneDate
+
+Retrieve a date with specify timezone
+
+```ts
+timezoneDate(year = 0, month = 0, day = 0, hour = 0, minute = 0, second = 0, timezone?: string): Date | undefined
+```
 ## 4. Enum
 
 ### 4.1 inEnum
