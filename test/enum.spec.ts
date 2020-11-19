@@ -1,4 +1,4 @@
-import { inEnum, Types, typeis } from '../'
+import { inEnum } from '../'
 
 test('enum - inEnum', () => {
   expect(inEnum()).toBeFalsy();
@@ -63,12 +63,3 @@ test('enum - inEnum', () => {
   }
   expect(inEnum(enums, 3)).toEqual(false);
 });
-
-test('enum - Types', () => {
-  expect(typeis(1)).toEqual(Types.number)
-  expect(typeis('1')).toEqual(Types.string)
-  expect(typeis(true)).toEqual(Types.bool)
-  expect(typeis({})).toEqual(Types.object)
-  expect(typeis([])).toEqual(Types.array)
-  expect(typeis(void 0)).toEqual(Types.undefined)
-})
