@@ -20,7 +20,7 @@
   "unpkg": "dist/jstd.min.js",
   "types": "dist/types/index.d.ts",
   "scripts": {
-    "test": "npx jest"
+    "test": "TZ=Asia/Shanghai npx jest"
   },
   "ava": {
     "files": [
