@@ -145,6 +145,12 @@ describe('object - extractable cases', () => {
   test('object - extractable', () => {
     const o = {a: {b: 1, c: 2, d: 3, e: 4, f: 5}, g: {h: 6, i: 7}}
     const binding = extractable.bind(o)
+    expect(binding('c', ['f1', 'd'], {'g1': 2}, ['e', 999], ['f', 'i', {i: 0}], 'a')).toEqual({c: 2, f1: 3, g1: 2, e: 999, f: 0})
+  });
+
+  test('object - extractable', () => {
+    const o = {a: {b: 1, c: 2, d: 3, e: 4, f: 5}, g: {h: 6, i: 7}}
+    const binding = extractable.bind(o)
     expect(binding('c', ['f1', 'd'], {'g1': 2}, ['e', 999], ['f', 'i', void 0], 'a')).toEqual({c: 2, f1: 3, g1: 2, e: 999, f: ''})
   });
 })
