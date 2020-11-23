@@ -2,14 +2,14 @@ import { Dict, OptionalDict, OptionalPropertyItem, ExtractableArgs } from '../ty
 /**
  * To determine a var is an Object type which is type of `{}`
  * @param obj args var
- * @param length length equals true ? not empty Object : Object
+ * @param length length equals true ? not empty Object : Object, default is true
  */
 export declare const objectable: (obj: any, length?: boolean) => boolean;
 /**
  * Retrieve value from optional chain in an Object
  * @param path The path where the string concatenated by the separator is used to find the value
  * @param obj target object
- * @param separator separator of path string
+ * @param separator separator of path string, default is '.'
  */
 export declare const optional: <T>(path: any, obj?: any, separator?: string) => T;
 /**

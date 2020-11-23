@@ -23,7 +23,7 @@ export declare enum Types {
     unknown = ""
 }
 /**
- * enum of types descriptions
+ * enum of type's descriptions
  */
 export declare enum TypesDesc {
     '[object Number]' = "number",

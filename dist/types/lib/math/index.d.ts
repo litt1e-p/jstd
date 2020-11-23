@@ -1,5 +1,5 @@
 /**
- * Retrieve a random number with range limit
+ * Retrieve a random number with range limit, default is Math.random()
  * @param min argv for minimum of range
  * @param max argv for maximum of range
  */

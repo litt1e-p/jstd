@@ -17,6 +17,6 @@ export declare const isUndefined: (val?: any) => boolean;
  * Determine whether a value is numberic which support pure number-like and pure instance of Number
  * @param val argv to determine
  * @param signed symbol mark for positive/negative
- * @param arabic if arabic number limitation
+ * @param arabic if arabic number limitation, default is true
  */
 export declare const isNumberic: (val: any, signed?: boolean, arabic?: boolean) => boolean | number;
