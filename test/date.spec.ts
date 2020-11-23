@@ -31,32 +31,31 @@ describe('date - formatDate cases', () => {
   });
   
   test('date - formatDate', () => {
-    // const date = new Date('Wed Nov 4 2020 12:06:02 GMT+0800 (中国标准时间)')
-    const date = timezoneDate(2020, 11, 4, 12, 6, 2, 'Asia/Shanghai')
-    const date2 = timezoneDate(2020, 11, 4, 12, 6, 2, 'America/New_York')
-    expect([formatDate(date), formatDate(date2)]).toContainEqual('2020-11-04 12:06:02');
+    const date = new Date('Wed Nov 4 2020 12:06:02 GMT+0800 (中国标准时间)')
+    // const date = timezoneDate(2020, 11, 4, 12, 6, 2, 'Asia/Shanghai')
+    // const date2 = timezoneDate(2020, 11, 4, 12, 6, 2, 'America/New_York')
+    expect(formatDate(date)).toEqual('2020-11-04 12:06:02');
   });
   
   test('date - formatDate', () => {
-    // const date = new Date('Wed Nov 4 2020 12:06:02 GMT+0800 (中国标准时间)')
-    const date = timezoneDate(2020, 11, 4, 12, 6, 2, 'Asia/Shanghai')
-    const date2 = timezoneDate(2020, 11, 4, 12, 6, 2, 'America/New_York')
-    expect([formatDate(date, 'MM-dd yyyy'), formatDate(date2, 'MM-dd yyyy')]).toContainEqual('11-04 2020');
+    const date = new Date('Wed Nov 4 2020 12:06:02 GMT+0800 (中国标准时间)')
+    // const date = timezoneDate(2020, 11, 4, 12, 6, 2, 'Asia/Shanghai')
+    // const date2 = timezoneDate(2020, 11, 4, 12, 6, 2, 'America/New_York')
+    expect(formatDate(date, 'MM-dd yyyy')).toEqual('11-04 2020');
   });
   
   test('date - formatDate', () => {
-    // const date = new Date('Wed Nov 4 2020 12:06:02 GMT+0800 (中国标准时间)')
-    const date = timezoneDate(2020, 11, 4, 12, 6, 2, 'Asia/Shanghai')
-    const date2 = timezoneDate(2020, 11, 4, 12, 6, 2, 'America/New_York')
-    expect([formatDate(date, 'hh:mm:ss dd/MM yyyy'), formatDate(date2, 'hh:mm:ss dd/MM yyyy')]).toContainEqual('12:06:02 04/11 2020');
+    const date = new Date('Wed Nov 4 2020 12:06:02 GMT+0800 (中国标准时间)')
+    // const date = timezoneDate(2020, 11, 4, 12, 6, 2, 'Asia/Shanghai')
+    // const date2 = timezoneDate(2020, 11, 4, 12, 6, 2, 'America/New_York')
+    expect(formatDate(date, 'hh:mm:ss dd/MM yyyy')).toEqual('12:06:02 04/11 2020');
   });
   
   test('date - formatDate', () => {
-    // const date = new Date('Wed Nov 4 2020 12:06:02 GMT+0800 (中国标准时间)')
-    const date = timezoneDate(2020, 11, 4, 12, 6, 2, 'Asia/Shanghai')
-    const date2 = timezoneDate(2020, 11, 4, 12, 6, 2, 'America/New_York')
-    expect([formatDate(date, 'h:m:s d-M-Y'), formatDate(date2, 'h:m:s d-M-Y')]).toContainEqual('12:6:2 4-11-2020');
+    const date = new Date('Wed Nov 4 2020 12:06:02 GMT+0800 (中国标准时间)')
+    // const date = timezoneDate(2020, 11, 4, 12, 6, 2, 'Asia/Shanghai')
+    // const date2 = timezoneDate(2020, 11, 4, 12, 6, 2, 'America/New_York')
+    expect(formatDate(date, 'h:m:s d-M-Y')).toEqual('12:6:2 4-11-2020');
   });
   
 })
-
