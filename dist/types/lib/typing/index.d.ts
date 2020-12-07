@@ -10,3 +10,4 @@ export declare type OptionalPropertyDict<T> = Dict<T> | OptionalPropertyItem<T>;
 export declare type OptionalPropertyArray<T> = Array<T> | OptionalPropertyItem<T>;
 export declare type OptionalPropertyObj<T> = OptionalPropertyDict<T> | OptionalPropertyArray<T>;
 export declare type ExtractableArgs = string | [string, string] | [string, any] | [string, any, any] | Dict<any> | undefined;
+export declare type EmptyFunc = () => void;

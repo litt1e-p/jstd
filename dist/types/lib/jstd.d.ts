@@ -11,4 +11,5 @@ import { isNil, isNull, isUndefined, isNumberic } from './regexp/index';
 import { sleep } from './eventloop/index';
 import { settable } from './set/index';
 import { stringable, strLen } from './string/index';
-export { arrayable, arrayUnique, arrValsCount, arrValCount, _btoa, _atob, url2Blob, str2Buffer, buffer2Str, typeis, re, formatDate, timezoneDate, Types, TypesDesc, inEnum, mappable, rangeRandom, numberic, objectable, optional, extractable, assign, objReverse, isNil, isNull, isUndefined, isNumberic, sleep, settable, stringable, strLen };
+import { PromisePolyfill } from './promise/index';
+export { arrayable, arrayUnique, arrValsCount, arrValCount, _btoa, _atob, url2Blob, str2Buffer, buffer2Str, typeis, re, formatDate, timezoneDate, Types, TypesDesc, inEnum, mappable, rangeRandom, numberic, objectable, optional, extractable, assign, objReverse, isNil, isNull, isUndefined, isNumberic, sleep, settable, stringable, strLen, PromisePolyfill };
