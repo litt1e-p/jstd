@@ -15,6 +15,9 @@ declare enum PromiseStatus {
 interface Executor {
     (resolve: ExecutorArgs, reject: ExecutorArgs): any;
 }
+/**
+ * polyfill for Promise
+ */
 export declare class PromisePolyfill {
     status: PromiseStatus;
     value: any;
