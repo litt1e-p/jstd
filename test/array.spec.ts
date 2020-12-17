@@ -72,6 +72,10 @@ describe('Array', () => {
     expect(flat([1])).toEqual([1])
   })
 
+  test('array - flat - undefined', () => {
+    expect(flat([undefined, 1])).toEqual([undefined, 1])
+  })
+
   test('array - flat - 2 - 0', () => {
     expect(flat([1, [2]], 0)).toEqual([1, [2]])
   })
