@@ -164,7 +164,8 @@ describe('object - assign cases', () => {
   
   test('object - assign', () => {
     const obj = {a: {b: {c: 1}, d: 2}, e: 3}
-    expect(assign(void 0, obj, void 0)).toEqual(obj);
+    assign(void 0, obj, void 0)
+    expect(obj).toEqual(obj);
   });
   
   test('object - assign', () => {
