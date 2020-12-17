@@ -18,7 +18,7 @@
  */
 import { typeis } from '../common/index'
 import { Types } from '../enum/index'
-import { NumberDict } from '../typing/index'
+import { NumberDict, OptionalPropertyArray } from '../typing/index'
 
 /**
  * To determine a var is an array or not empty array
@@ -74,4 +74,24 @@ export const arrValCount = function <T>(array: any, key: T): number {
   const n = arrValsCount(array)
   const strKey = key + ''
   return n.hasOwnProperty(strKey) ? n[strKey] : c
+}
+
+/**
+ * flatten an array recursively up to the specified depth.
+ * @param array
+ * @param depth depth of recurrence default is Infinity
+ */
+export const flat = function <T>(array: any, depth = Infinity): OptionalPropertyArray<T> {
+  let rs = Array.prototype.constructor()
+  if (!arrayable(array, false)) {
+    return array
+  }
+  const dp = isNaN(depth) ? 1 : Number(depth)
+  if (!dp) {
+    return Array.prototype.slice.call(array)
+  }
+  for (let i = 0, l = array.length >>> 0; i < l; i++) {
+    rs = rs.concat(flat(array[i], dp - 1))
+  }
+  return rs
 }

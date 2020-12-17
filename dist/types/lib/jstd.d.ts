@@ -1,4 +1,4 @@
-import { arrayable, arrayUnique, arrValsCount, arrValCount } from './array/index';
+import { arrayable, arrayUnique, arrValsCount, arrValCount, flat } from './array/index';
 import { _btoa, _atob } from './buffer/base64';
 import { url2Blob, str2Buffer, buffer2Str } from './buffer/index';
 import { typeis, re } from './common/index';
@@ -12,4 +12,4 @@ import { sleep } from './eventloop/index';
 import { settable } from './set/index';
 import { stringable, strLen } from './string/index';
 import { PromisePolyfill } from './promise/index';
-export { arrayable, arrayUnique, arrValsCount, arrValCount, _btoa, _atob, url2Blob, str2Buffer, buffer2Str, typeis, re, formatDate, timezoneDate, Types, TypesDesc, inEnum, mappable, rangeRandom, numberic, objectable, optional, extractable, assign, objReverse, isNil, isNull, isUndefined, isNumberic, sleep, settable, stringable, strLen, PromisePolyfill };
+export { arrayable, arrayUnique, arrValsCount, arrValCount, flat, _btoa, _atob, url2Blob, str2Buffer, buffer2Str, typeis, re, formatDate, timezoneDate, Types, TypesDesc, inEnum, mappable, rangeRandom, numberic, objectable, optional, extractable, assign, objReverse, isNil, isNull, isUndefined, isNumberic, sleep, settable, stringable, strLen, PromisePolyfill };

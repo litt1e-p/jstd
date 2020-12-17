@@ -1,4 +1,4 @@
-import { NumberDict } from '../typing/index';
+import { NumberDict, OptionalPropertyArray } from '../typing/index';
 /**
  * To determine a var is an array or not empty array
  * @param array - var to determine
@@ -22,3 +22,9 @@ export declare const arrValsCount: <T>(array: any) => NumberDict;
  * @param key clue for the count of var
  */
 export declare const arrValCount: <T>(array: any, key: T) => number;
+/**
+ * flatten an array recursively up to the specified depth.
+ * @param array
+ * @param depth depth of recurrence default is Infinity
+ */
+export declare const flat: <T>(array: any, depth?: number) => OptionalPropertyArray<T>;
