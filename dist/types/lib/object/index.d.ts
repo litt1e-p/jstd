@@ -1,4 +1,4 @@
-import { Dict, OptionalDict, OptionalPropertyItem, ExtractableArgs } from '../typing/index';
+import { Dict, OptionalDict, OptionalPropertyObj, OptionalPropertyItem, ExtractableArgs } from '../typing/index';
 /**
  * To determine a var is an Object type which is type of `{}`
  * @param obj args var
@@ -24,7 +24,7 @@ export declare const extractable: (...args: Array<ExtractableArgs>) => Dict<any>
  * @param val value to assign
  * @param separator separator for key path, default is '.'
  */
-export declare const assign: <T>(path: any, obj: Dict<T>, val?: any, separator?: string) => Dict<T>;
+export declare const assign: <T>(path: any, obj: OptionalPropertyObj<T>, val?: any, separator?: string) => void;
 /**
  * Reverse an object's key and value
  * @param obj argv object
