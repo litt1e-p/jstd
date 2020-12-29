@@ -1,0 +1,7 @@
+node_modules/
+coverage/
+test/
+packages/
+.DS_Store
+.travis.yml
+jest.config.js

@@ -1,6 +1,6 @@
 {
   "name": "jstd",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "js utilities lib",
   "config": {
     "libName": "jstd"
@@ -22,6 +22,9 @@
   "scripts": {
     "test": "TZ=Asia/Shanghai npx jest"
   },
+  "files": [
+    "/dist"
+  ],
   "ava": {
     "files": [
       "test/**/*.js"
