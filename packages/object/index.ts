@@ -29,7 +29,7 @@ import {
 } from '../typing/index'
 import { stringable } from '../string/index'
 import { arrayable } from '../array/index'
-import { isNumberic, isUndefined } from '../regexp/index'
+import { isNumberic, isNil } from '../regexp/index'
 
 /**
  * To determine a var is an Object type which is type of `{}`
@@ -59,7 +59,8 @@ export const optional = function <T>(path: any, obj?: any, separator = '.'): Opt
     properties = p.split(separator)
   }
   let o: OptionalPropertyObj<T>
-  if (typeis(obj) !== Types.object && typeis(obj) !== Types.array) {
+  // if (typeis(obj) !== Types.object && typeis(obj) !== Types.array) {
+  if (isNil(obj)) {
     try {
       // eslint-disable-next-line no-eval
       o = isNumberic(properties[0]) ? eval(`this[${properties[0]}]`) : eval('this.' + properties[0])
@@ -81,7 +82,9 @@ export const optional = function <T>(path: any, obj?: any, separator = '.'): Opt
     if (objectable(prev)) {
       return (prev as Dict<T>)[curr] as OptionalPropertyObj<T>
     } else if (arrayable(prev)) {
-      return (prev as Array<T>)[+curr] as OptionalPropertyObj<T>
+      return isNumberic(curr) ? ((prev as Array<T>)[+curr] as OptionalPropertyObj<T>) : ((prev as Dict<T>)[curr] as OptionalPropertyObj<T>)
+    } else {
+      return prev ? ((prev as Dict<T>)[curr] as OptionalPropertyObj<T>) : undefined
     }
     // @TODO mappable settable support
   }, o)
@@ -133,21 +136,21 @@ export const extractable = function (...args: Array<ExtractableArgs>): Dict<any>
  * @param val value to assign
  * @param separator separator for key path, default is '.'
  */
-export const assign = function <T>(path: any, obj: OptionalDict<T>, val?: any, separator = '.'): OptionalDict<T> {
-  if (!objectable(obj)) {
+export const assign = function <T>(path: any, obj: OptionalPropertyObj<T>, val?: any, separator = '.'): void {
+  if (typeis(obj) !== Types.object && typeis(obj) !== Types.array) {
     return void 0
   }
   if (!stringable(path) && !arrayable(path)) {
-    return obj
+    return void 0
   }
   if (stringable(path)) {
     path = path.split(separator)
   }
   if (path.length > 1) {
-    assign(path, (obj as Dict<any>)[path.shift()], val)
+    assign(path, (obj as OptionalPropertyObj<any>)[path.shift()], val)
   } else {
     // eslint-disable-next-line prettier/prettier
-    (obj as Dict<any>)[path[0]] = val
+    (obj as OptionalPropertyObj<any>)[path[0]] = val
   }
 }
 

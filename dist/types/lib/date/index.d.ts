@@ -15,3 +15,11 @@ export declare const formatDate: (date?: Date | string, format?: string) => stri
  * @param timezone argv timezone like 'America/New_York'
  */
 export declare const timezoneDate: (year?: number, month?: number, day?: number, hour?: number, minute?: number, second?: number, timezone?: string) => Date | undefined;
+/**
+ * Retrieve a quarter string with another quarter and delta quarters which are used to calculate
+ * @param quarter given quarter, eg. '2021Q3'
+ * @param delta calculation quarter number, negative means backward, positive means forward. eg. 3, -1, 10, -7
+ * @param separator separator for year and quarter, default is 'Q'
+ * @returns string | undefined
+ */
+export declare const quarterable: (quarter: any, delta?: number, separator?: string) => string | undefined;

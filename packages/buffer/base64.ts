@@ -17,12 +17,10 @@
  * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/='
-
 interface InvalidCharacterErrorInterface extends Error {
   name: string
   message: string
 }
-
 export class InvalidCharacterError implements InvalidCharacterErrorInterface {
   name: string
   message: string
@@ -41,7 +39,8 @@ export class InvalidCharacterError implements InvalidCharacterErrorInterface {
 // encoder
 // [https://gist.github.com/999166] by [https://github.com/nignag]
 let _btoa: (data: string) => string
-if (typeof window !== 'undefined') {
+// eslint-disable-next-line no-undef
+if (typeof window !== 'undefined' && window.btoa) {
   // eslint-disable-next-line no-undef
   _btoa = window.btoa
 } else {
@@ -71,7 +70,8 @@ if (typeof window !== 'undefined') {
 // decoder
 // [https://gist.github.com/1020396] by [https://github.com/atk]
 let _atob: (data: string) => string
-if (typeof window !== 'undefined') {
+// eslint-disable-next-line no-undef
+if (typeof window !== 'undefined' && window.atob) {
   // eslint-disable-next-line no-undef
   _atob = window.atob
 } else {

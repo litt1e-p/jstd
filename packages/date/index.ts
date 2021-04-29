@@ -20,6 +20,7 @@ import { Dict } from '../typing/index'
 import { stringable } from '../string/index'
 import { typeis } from '../common/index'
 import { Types } from '../enum/index'
+import { isNumberic } from '../regexp/index'
 
 const formatNumber = (n: any) => {
   n = n.toString()
@@ -105,4 +106,33 @@ export const timezoneDate = function (year = 0, month = 0, day = 0, hour = 0, mi
   const offset = utcDate.getTime() - tzDate.getTime()
   date.setTime(date.getTime() + offset)
   return date
+}
+
+/**
+ * Retrieve a quarter string with another quarter and delta quarters which are used to calculate
+ * @param quarter given quarter, eg. '2021Q3'
+ * @param delta calculation quarter number, negative means backward, positive means forward. eg. 3, -1, 10, -7
+ * @param separator separator for year and quarter, default is 'Q'
+ * @returns string | undefined
+ */
+export const quarterable = function (quarter: any, delta = 0, separator = 'Q'): string | undefined {
+  const r = Array(2).fill(String.prototype.constructor())
+  const reg = new RegExp(`^\\d{4}${separator}\\d$`, 'g')
+  if (!stringable(quarter) || !reg.test(quarter)) {
+    return undefined
+  }
+  const [y, s] = quarter.split(separator)
+  if (!isNumberic(y) || !isNumberic(s)) {
+    return undefined
+  }
+  const qt = +s + +delta
+  const t = +y * 4 + qt
+  if (qt % 4 === 0) {
+    r[0] = qt === 0 ? y - 1 : +y + qt / 4 - 1
+    r[1] = 4
+  } else {
+    r[1] = t % 4
+    r[0] = (t - r[1]) / 4
+  }
+  return r.join(separator)
 }
