@@ -2,7 +2,7 @@ import { arrayable, arrayUnique, arrValsCount, arrValCount, flat } from './array
 import { _btoa, _atob } from './buffer/base64';
 import { url2Blob, str2Buffer, buffer2Str } from './buffer/index';
 import { typeis, re } from './common/index';
-import { formatDate, timezoneDate } from './date/index';
+import { formatDate, timezoneDate, quarterable } from './date/index';
 import { Types, TypesDesc, inEnum } from './enum/index';
 import { mappable } from './map/index';
 import { rangeRandom, numberic } from './math/index';
@@ -12,4 +12,4 @@ import { sleep } from './eventloop/index';
 import { settable } from './set/index';
 import { stringable, strLen } from './string/index';
 import { PromisePolyfill } from './promise/index';
-export { arrayable, arrayUnique, arrValsCount, arrValCount, flat, _btoa, _atob, url2Blob, str2Buffer, buffer2Str, typeis, re, formatDate, timezoneDate, Types, TypesDesc, inEnum, mappable, rangeRandom, numberic, objectable, optional, extractable, assign, objReverse, isNil, isNull, isUndefined, isNumberic, sleep, settable, stringable, strLen, PromisePolyfill };
+export { arrayable, arrayUnique, arrValsCount, arrValCount, flat, _btoa, _atob, url2Blob, str2Buffer, buffer2Str, typeis, re, formatDate, timezoneDate, quarterable, Types, TypesDesc, inEnum, mappable, rangeRandom, numberic, objectable, optional, extractable, assign, objReverse, isNil, isNull, isUndefined, isNumberic, sleep, settable, stringable, strLen, PromisePolyfill };
