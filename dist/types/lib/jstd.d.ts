@@ -12,4 +12,7 @@ import { sleep } from './eventloop/index';
 import { settable } from './set/index';
 import { stringable, strLen } from './string/index';
 import { PromisePolyfill } from './promise/index';
-export { arrayable, arrayUnique, arrValsCount, arrValCount, flat, _btoa, _atob, url2Blob, str2Buffer, buffer2Str, typeis, re, formatDate, timezoneDate, quarterable, Types, TypesDesc, inEnum, mappable, rangeRandom, numberic, objectable, optional, extractable, assign, objReverse, isNil, isNull, isUndefined, isNumberic, sleep, settable, stringable, strLen, PromisePolyfill };
+import { debounce } from './function/debounce';
+import { throttle } from './function/throttle';
+import { copy, copyArrayBuffer, copyDataView, copyDate, copyRegExp, copyTypedArray } from './function/copy';
+export { arrayable, arrayUnique, arrValsCount, arrValCount, flat, _btoa, _atob, url2Blob, str2Buffer, buffer2Str, typeis, re, formatDate, timezoneDate, quarterable, Types, TypesDesc, inEnum, mappable, rangeRandom, numberic, objectable, optional, extractable, assign, objReverse, isNil, isNull, isUndefined, isNumberic, sleep, settable, stringable, strLen, PromisePolyfill, debounce, throttle, copy, copyArrayBuffer, copyDataView, copyDate, copyRegExp, copyTypedArray };

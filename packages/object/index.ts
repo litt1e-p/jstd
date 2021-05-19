@@ -37,7 +37,25 @@ import { isNumberic, isNil } from '../regexp/index'
  * @param length length equals true ? not empty Object : Object, default is true
  */
 export const objectable = function (obj: any, length = true): boolean {
-  return typeis(obj) === Types.object && (length ? Object.keys(obj).length > 0 : true)
+  if (typeis(obj) !== Types.object) {
+    return false
+  }
+  const proto = Object.getPrototypeOf(obj)
+  // Object.create(null)
+  if (!proto) {
+    return length ? Object.keys(obj).length > 0 : true
+  }
+  // Object.create({}) or Object.create({ a: 1 })
+  if (proto.constructor === Object) {
+    return length ? Object.keys(obj).length > 0 : true
+  }
+  // false or '[Function: SomeType]'
+  const ctor = Object.prototype.hasOwnProperty.call(proto, 'constructor') && proto.constructor
+  return (
+    typeof ctor === 'function' &&
+    Object.prototype.hasOwnProperty.toString.call(ctor) === Object.prototype.hasOwnProperty.toString.call(Object) &&
+    (length ? Object.keys(obj).length > 0 : true)
+  )
 }
 
 /**
@@ -167,13 +185,13 @@ export const objReverse = function (obj?: OptionalDict<any> | null): OptionalDic
     const tk = String(t[k])
     let tv: Array<any> = []
     if (arrayable(r[tk], false)) {
-      tv = (r[tk] as unknown) as Array<any>
+      tv = r[tk] as unknown as Array<any>
     }
     return Object.assign(r, { [tk]: tv.concat(k) })
   }, {})
   for (const k in s) {
     if (s.hasOwnProperty(k)) {
-      s[k] = Array.isArray(s[k]) && ((s[k] as unknown) as Array<any>).length === 1 ? s[k][0] : s[k]
+      s[k] = Array.isArray(s[k]) && (s[k] as unknown as Array<any>).length === 1 ? s[k][0] : s[k]
     }
   }
   return s

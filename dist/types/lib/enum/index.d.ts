@@ -1,28 +1,5 @@
 import { Dict } from '../typing/index';
 /**
- * enum of Types
- */
-export declare enum Types {
-    number = "number",
-    string = "string",
-    bool = "bool",
-    undefined = "undefined",
-    null = "null",
-    array = "array",
-    uint8Array = "uint8Array",
-    object = "object",
-    function = "function",
-    bigInt = "bigInt",
-    date = "date",
-    weakMap = "weakMap",
-    map = "map",
-    weakSet = "weakSet",
-    set = "set",
-    symbol = "symbol",
-    arrayBuffer = "arrayBuffer",
-    unknown = ""
-}
-/**
  * enum of type's descriptions
  */
 export declare enum TypesDesc {
@@ -42,7 +19,61 @@ export declare enum TypesDesc {
     '[object WeakSet]' = "weakSet",
     '[object ArrayBuffer]' = "arrayBuffer",
     '[object Set]' = "set",
-    '[object Symbol]' = "symbol"
+    '[object Symbol]' = "symbol",
+    '[object DataView]' = "dataView",
+    '[object Float32Array]' = "float32Array",
+    '[object Float64Array]' = "float64Array",
+    '[object Int8Array]' = "int8Array",
+    '[object Int16Array]' = "int16Array",
+    '[object Int32Array]' = "int32Array",
+    '[object Uint8ClampedArray]' = "uint8ClampedArray",
+    '[object Uint16Array]' = "uint16Array",
+    '[object Uint32Array]' = "uint32Array",
+    '[object BigInt64Array]' = "bigInt64Array",
+    '[object BigUint64Array]' = "bigUint64Array",
+    '[object RegExp]' = "regExp"
+}
+/**
+ * enum of Types
+ */
+export declare enum Types {
+    /** basic */
+    number = "number",
+    string = "string",
+    bool = "bool",
+    undefined = "undefined",
+    null = "null",
+    bigInt = "bigInt",
+    /** complex  */
+    object = "object",
+    function = "function",
+    symbol = "symbol",
+    arrayBuffer = "arrayBuffer",
+    /** functional */
+    regExp = "regExp",
+    date = "date",
+    dataView = "dataView",
+    /** map */
+    weakMap = "weakMap",
+    map = "map",
+    /** set */
+    weakSet = "weakSet",
+    set = "set",
+    /** array */
+    array = "array",
+    uint8Array = "uint8Array",
+    float32Array = "float32Array",
+    float64Array = "float64Array",
+    int8Array = "int8Array",
+    int16Array = "int16Array",
+    int32Array = "int32Array",
+    uint8ClampedArray = "uint8ClampedArray",
+    uint16Array = "uint16Array",
+    uint32Array = "uint32Array",
+    bigInt64Array = "bigInt64Array",
+    bigUint64Array = "bigUint64Array",
+    /** unknown */
+    unknown = ""
 }
 /**
  * To determine whether a key in an Enum
