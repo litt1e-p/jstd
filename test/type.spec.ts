@@ -49,6 +49,13 @@ test('typeis - symbol', () => {
 test('typeis - arrayBuffer', () => {
   expect(typeis(new ArrayBuffer(4))).toBe(T.arrayBuffer);
 })
+
 test('typeis - unknown', () => {
-  expect(typeis(new BigInt64Array())).toBe(T.unknown);
+  class Unkonwn {
+    name: string
+    constructor (name?: string) {
+      this.name = name ?? 'unknown class'
+    }
+  }
+  expect(typeis(new Unkonwn())).toBe(T.unknown);
 })

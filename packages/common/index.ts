@@ -24,6 +24,12 @@ import { Types as T, TypesDesc as Ts } from '../enum/index'
  */
 export const typeis = function (v: any): T[keyof T] {
   const s = Object.prototype.toString.call(v)
+  if ('[object Object]' === s) {
+    const proto = Object.getPrototypeOf(v)
+    if (proto && proto.constructor !== Object) {
+      return T.unknown
+    }
+  }
   let d: string = T.unknown
   if (Object.keys(Ts).includes(s)) {
     d = T[Ts[s as keyof typeof Ts]]

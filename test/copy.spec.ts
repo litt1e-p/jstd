@@ -233,7 +233,7 @@ describe('Copy - cases', () => {
     expect(copy(null)).toEqual(null)
     expect(copy(undefined)).toEqual(undefined)
     expect(copy('abc')).toEqual('abc')
-    expect(copy(120n)).toEqual(120n)
+    // expect(copy(120n)).toEqual(120n) // @support target: ES2020
   })
 
   // copy object

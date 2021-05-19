@@ -1,4 +1,4 @@
-import { throttle } from '../src/lib/function/throttle'
+import { throttle } from '../'
 
 jest.useFakeTimers()
 describe('function - throttle cases', () => {
