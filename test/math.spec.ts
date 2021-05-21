@@ -1,4 +1,4 @@
-import { rangeRandom, numberic } from '../'
+import { rangeRandom, numberic, guid, hash } from '../'
 
 describe('math testing', () => {
   test('math - rangeRandom - empty', async () => {
@@ -164,6 +164,20 @@ describe('math testing', () => {
       expect(numberic(Number.NaN)).toEqual(void 0)
       expect(numberic(Math.PI)).toEqual(3.14)
     })
+  })
+
+  test('Math - guid', () => {
+    const id = guid()
+    const id16 = guid(16)
+    expect(id.length).toEqual(8)
+    expect(id16.length).toEqual(16)
+    expect(/[a-z0-9]{8}/.test(id)).toBeTruthy()
+  })
+
+  test('Math - hash', () => {
+    const hs = hash()
+    expect(hs.length).toEqual(8)
+    expect(/[a-z0-9]{8}/.test(hs)).toBeTruthy()
   })
 
 })

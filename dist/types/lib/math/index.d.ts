@@ -11,3 +11,15 @@ export declare const rangeRandom: (min?: any, max?: any) => number;
  * @param places rounding places limitation which default is equal to digits
  */
 export declare const numberic: (val?: any, digits?: number, places?: number) => number | undefined;
+/**
+ * Generate a guid string randomly
+ * @param length length of guid
+ * @param salt salt of guid
+ * @returns random string with length and salt limitation
+ */
+export declare const guid: (length?: number, salt?: string) => string;
+/**
+ * Generate a hash string randomly
+ * @returns random hash string
+ */
+export declare const hash: () => string;

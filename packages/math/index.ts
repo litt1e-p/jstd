@@ -48,3 +48,25 @@ export const numberic = function (val?: any, digits = 2, places?: number): numbe
   places = (isNumberic(places, true) ? places : digits) as number
   return sign * (places > 0 ? +pr.toFixed(places) : pr)
 }
+
+/**
+ * Generate a guid string randomly
+ * @param length length of guid
+ * @param salt salt of guid
+ * @returns random string with length and salt limitation
+ */
+export const guid = function (length = 8, salt = 'abcdefghijklmnopqrstuvwxyz0123456789'): string {
+  let salts = salt.split('')
+  if (!salts.length) {
+    salts = 'abcdefghijklmnopqrstuvwxyz0123456789'.split('')
+  }
+  return [...Array(length)].map(_ => salts[(Math.random() * salts.length) | 0]).join('')
+}
+
+/**
+ * Generate a hash string randomly
+ * @returns random hash string
+ */
+export const hash = function (): string {
+  return ((Math.random() * 0xffffff) << 7).toString(16)
+}
