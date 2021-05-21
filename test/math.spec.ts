@@ -176,7 +176,6 @@ describe('math testing', () => {
 
   test('Math - hash', () => {
     const hs = hash()
-    expect(hs.length).toEqual(8)
     expect(/[a-z0-9]{8}/.test(hs)).toBeTruthy()
   })
 
