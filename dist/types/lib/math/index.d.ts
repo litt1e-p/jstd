@@ -13,8 +13,8 @@ export declare const rangeRandom: (min?: any, max?: any) => number;
 export declare const numberic: (val?: any, digits?: number, places?: number) => number | undefined;
 /**
  * Generate a guid string randomly
- * @param length length of guid
- * @param salt salt of guid
+ * @param length length of guid, default: 8
+ * @param salt salt of guid, default: 'abcdefghijklmnopqrstuvwxyz0123456789'
  * @returns random string with length and salt limitation
  */
 export declare const guid: (length?: number, salt?: string) => string;
