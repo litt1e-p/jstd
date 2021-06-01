@@ -46,7 +46,8 @@ export const throttle = function <F extends Func>(fn: F, time: number | string, 
   let timer: null | ReturnType<typeof setTimeout>
   let result: any
   let previous = 0
-  const invokeFn: FrequencyFn<F> = function (ctx: ThisParameterType<F>, ...args: Parameters<F>) {
+  const invokeFn: FrequencyFn<F> = function (this: ThisParameterType<F>, ...args: Parameters<F>) {
+    const ctx = this
     const now = new Date().getTime()
     if (!previous && options?.leading === false) {
       previous = now

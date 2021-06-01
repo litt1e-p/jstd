@@ -25,7 +25,7 @@ export type Func = (...args: Array<any>) => any
  * interface for debounce & throttle
  */
 export interface FrequencyFn<F extends Func> {
-  (ctx: ThisParameterType<F>, ...args: Parameters<F>): ReturnType<F>
+  (this: ThisParameterType<F>, ...args: Parameters<F>): ReturnType<F>
   /**
    * cancel execution
    */

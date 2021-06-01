@@ -36,4 +36,13 @@ describe('function - debounce cases', () => {
     jest.runAllTimers()
     expect(func).toBeCalledTimes(2)
   })
+
+  test('function - debounce - arguments', () => {
+    const fn = (a: number, b: number) => a + b
+    const rs = fn(1, 2)
+    const debounceFn = debounce(fn, 800, true)
+    const debounceRs = debounceFn(1, 2)
+    expect(rs).toEqual(debounceRs)
+  })
+
 })

@@ -48,4 +48,14 @@ describe('function - throttle cases', () => {
     jest.runAllTimers()
     expect(func).toBeCalledTimes(1)
   })
+
+  test('function - throttle - arguments', () => {
+    const fn = (a: number, b: number) => a + b
+    const rs = fn(1, 2)
+    const throttleFn = throttle(fn, 800)
+    const throttleRs = throttleFn(1, 2)
+    expect(rs).toEqual(3)
+    expect(throttleRs).toEqual(undefined)
+  })
+  
 })

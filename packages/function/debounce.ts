@@ -35,8 +35,8 @@ export const debounce = function <F extends Func>(fn: F, time: number | string, 
   }
   let timer: null | ReturnType<typeof setTimeout>
   let result: any
-  const invokeFn: FrequencyFn<F> = function (ctx: ThisParameterType<F>, ...args: Parameters<F>) {
-    // const ctx = this
+  const invokeFn: FrequencyFn<F> = function (this: ThisParameterType<F>, ...args: Parameters<F>) {
+    const ctx = this
     // const args: IArguments = arguments
     timer && clearTimeout(timer)
     if (immediate) {
