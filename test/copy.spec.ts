@@ -403,4 +403,18 @@ describe('Copy - cases', () => {
     expect(dtoCopy).toEqual([2, {r: new Date('2021-05-20')}])
   })
   
+  test('Copy - recursive copy', () => {
+    type O = {
+      k: number,
+      r: any
+    }
+    const o: O = {
+      k: 1,
+      r: void 0
+    }
+    o.r = o
+    const co = copy(o)
+    expect(co).not.toBe(o)
+  })
+  
 })

@@ -5,7 +5,11 @@ describe('Buffer', () => {
     try {
       url2Blob('')
     } catch (e) {
-      expect(e.message).toBe('url2Blob only works in browser environment')
+      type Err = {
+        message: String
+      }
+      const msg =  (e as Err).message ?? 'unknow error'
+      expect(msg).toBe('url2Blob only works in browser environment')
     }
   });
 

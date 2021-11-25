@@ -13,7 +13,11 @@ describe('base64 _btoa', () => {
     try {
       _btoa('中文')
     } catch (e) {
-      expect(e.message).toBe("'btoa' failed: The string to be encoded contains characters outside of the Latin1 range.")
+      type Err = {
+        message: String
+      }
+      const msg =  (e as Err).message ?? 'unknow error'
+      expect(msg).toBe("'btoa' failed: The string to be encoded contains characters outside of the Latin1 range.")
     }
   });
 
@@ -30,7 +34,11 @@ describe('base64 _btoa', () => {
     try {
       _atob('中文123')
     } catch (e) {
-      expect(e.message).toBe("'atob' failed: The string to be decoded is not correctly encoded.")
+      type Err = {
+        message: String
+      }
+      const msg =  (e as Err).message ?? 'unknow error'
+      expect(msg).toBe("'atob' failed: The string to be decoded is not correctly encoded.")
     }
   });
 })

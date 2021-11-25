@@ -1,6 +1,6 @@
 {
   "name": "jstd",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "js utilities lib",
   "config": {
     "libName": "jstd"
@@ -20,7 +20,7 @@
   "unpkg": "dist/jstd.min.js",
   "types": "dist/types/index.d.ts",
   "scripts": {
-    "test": "TZ=Asia/Shanghai npx jest"
+    "test": "ENV TZ=Asia/Shanghai npx jest"
   },
   "files": [
     "/dist"
@@ -42,17 +42,17 @@
   },
   "homepage": "https://github.com/litt1e-p/jstd#readme",
   "dependencies": {
-    "core-js": "^3.15.2",
-    "regenerator-runtime": "^0.13.7"
+    "core-js": "^3.19.1",
+    "regenerator-runtime": "^0.13.9"
   },
   "peerDependencies": {
-    "core-js": "^3.15.2",
-    "regenerator-runtime": "^0.13.7"
+    "core-js": "^3.19.1",
+    "regenerator-runtime": "^0.13.9"
   },
   "devDependencies": {
-    "@types/jest": "^26.0.24",
-    "jest": "^27.0.6",
-    "ts-jest": "^27.0.3",
-    "typescript": "^4.3.5"
+    "@types/jest": "^27.0.3",
+    "jest": "^27.3.1",
+    "ts-jest": "^27.0.7",
+    "typescript": "^4.5.2"
   }
 }
