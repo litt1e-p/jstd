@@ -46,7 +46,7 @@ export const numberic = function (val?: any, digits = 2, places?: number): numbe
   const pad = isNumberic(digits, true) ? +(1 + Array(digits).fill(0).join('')) : 100
   const pr = Math.round((t + Number.EPSILON) * pad) / pad
   places = (isNumberic(places, true) ? places : digits) as number
-  return sign * (places > 0 ? +pr.toFixed(places) : pr)
+  return places > 0 ? +(sign * pr).toFixed(places) : pr * sign
 }
 
 /**
@@ -69,4 +69,48 @@ export const guid = function (length = 8, salt = 'abcdefghijklmnopqrstuvwxyz0123
  */
 export const hash = function (): string {
   return ((Math.random() * 0xffffff) << 7).toString(16)
+}
+/**
+ * Formatting or rounding a value with digits limitation and rounding places limitation
+ * @param val argv
+ * @param digits digits limitation which default is 2
+ * @param places rounding places limitation which default is equal to digits
+ * @returns string | undefined
+ */
+export const numberFormat = function (val?: any, digits = 2, places?: number): string | undefined {
+  const v = numberic(val, digits)
+  if (void 0 === v) return void 0
+  places = (isNumberic(places, true) ? places : digits) as number
+  return places > 0 ? v.toFixed(places) : val
+}
+
+/**
+ * Formatting a numberic like value into a string such as '1,000,000'
+ * @param val argv
+ * @param digits digits limitation which default is 2
+ * @param places rounding places limitation which default is equal to digits
+ * @param defaultVal string which default is ''
+ * @returns string
+ */
+export const moneyFormat = function (val?: any, digits = 2, places?: number, defaultVal = ''): string {
+  if (isNumberic(val)) {
+    places = (isNumberic(places, true) ? places : digits) as number
+    return numberic(val, digits)?.toLocaleString(undefined, { minimumFractionDigits: places, maximumFractionDigits: places }) ?? defaultVal
+  } else {
+    return defaultVal
+  }
+}
+
+/**
+ * Formatting with a positive/negative sign for a numberic value to a string such as '+1' or '-1', '0'
+ * @param val argv
+ * @param defaultVal string which default is ''
+ * @returns string
+ */
+export const signFormat = function (val?: any, defaultVal = ''): string {
+  if (isNumberic(val)) {
+    return `${val > 0 ? '+' : val < 0 ? '-' : ''}${Math.abs(val)}`
+  } else {
+    return defaultVal
+  }
 }

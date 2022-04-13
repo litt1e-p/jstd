@@ -77,8 +77,28 @@ describe('regex testing - isNumberic', () => {
     expect(isNumberic('10.5')).toBe(true)
   });
   
+  test('regexp - isNumberic - -0.57', () => {
+    expect(isNumberic('-0.57')).toBe(true)
+  });
+
+  test('regexp - isNumberic - -0.57', () => {
+    expect(isNumberic(-0.57)).toBe(true)
+  });
+
+  test('regexp - isNumberic - -0.15', () => {
+    expect(isNumberic('-0.15')).toBe(true)
+  });
+
   test('regexp - isNumberic - -10.5', () => {
     expect(isNumberic('-10.5')).toBe(true)
+  });
+
+  test('regexp - isNumberic - 10.512345', () => {
+    expect(isNumberic('10.512345')).toBe(true)
+  });
+
+  test('regexp - isNumberic - 0.1041', () => {
+    expect(isNumberic('0.1041')).toBe(true)
   });
 
   test('regexp - isNumberic - -010.5', () => {

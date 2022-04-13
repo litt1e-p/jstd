@@ -1,4 +1,4 @@
-import { rangeRandom, numberic, guid, hash } from '../'
+import { rangeRandom, numberic, guid, hash, numberFormat, moneyFormat, signFormat } from '../'
 
 describe('math testing', () => {
   test('math - rangeRandom - empty', async () => {
@@ -147,6 +147,39 @@ describe('math testing', () => {
       expect(numberic('123.1245', 0)).toEqual(123)
       expect(numberic('-123.5257', 0)).toEqual(-124)
       expect(numberic('-123.9257', -1)).toEqual(-123.93)
+    });
+
+    test('regexp - numberFormat - places-decimal-options', () => {
+      expect(numberFormat('123', 0, 3)).toEqual('123.000')
+      expect(numberFormat('123.45', 1)).toEqual('123.5')
+      expect(numberFormat('123.4', 3, 3)).toEqual('123.400')
+      expect(numberFormat('123.1235', 3)).toEqual('123.124')
+      expect(numberFormat('0.1235', 3)).toEqual('0.124')
+      expect(numberFormat('-0.1235', 3)).toEqual('-0.124')
+    });
+
+    test('regexp - moneyFormat - places-decimal-options', () => {
+      expect(moneyFormat('123000.1235')).toEqual('123,000.12')
+      expect(moneyFormat('123000.125')).toEqual('123,000.13')
+      expect(moneyFormat('123000.4', 3, 3)).toEqual('123,000.400')
+      expect(moneyFormat('123000.1235', 3)).toEqual('123,000.124')
+      expect(moneyFormat('123', 0)).toEqual('123')
+      expect(moneyFormat('123.45', 1)).toEqual('123.5')
+      expect(moneyFormat('0.1235', 3)).toEqual('0.124')
+      expect(moneyFormat('-0.1235', 3)).toEqual('-0.124')
+    });
+
+    test('regexp - signFormat - places-decimal-options', () => {
+      expect(signFormat('123.1235')).toEqual('+123.1235')
+      expect(signFormat(123.1235)).toEqual('+123.1235')
+      expect(signFormat('0.1235')).toEqual('+0.1235')
+      expect(signFormat(0.1235)).toEqual('+0.1235')
+      expect(signFormat('-0.1235')).toEqual('-0.1235')
+      expect(signFormat(-0.1235)).toEqual('-0.1235')
+      expect(signFormat(-0.57)).toEqual('-0.57')
+      expect(signFormat()).toEqual('')
+      expect(signFormat('F123.4')).toEqual('')
+      expect(signFormat('F123.4', '--')).toEqual('--')
     });
   
     test('regexp - numberic - negative int', () => {

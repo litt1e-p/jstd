@@ -9,6 +9,7 @@ export declare const rangeRandom: (min?: any, max?: any) => number;
  * @param val argv
  * @param digits digits limitation which default is 2
  * @param places rounding places limitation which default is equal to digits
+ * @returns number | undefined
  */
 export declare const numberic: (val?: any, digits?: number, places?: number) => number | undefined;
 /**
@@ -23,3 +24,27 @@ export declare const guid: (length?: number, salt?: string) => string;
  * @returns random hash string
  */
 export declare const hash: () => string;
+/**
+ * Formatting or rounding a value with digits limitation and rounding places limitation
+ * @param val argv
+ * @param digits digits limitation which default is 2
+ * @param places rounding places limitation which default is equal to digits
+ * @returns string | undefined
+ */
+export declare const numberFormat: (val?: any, digits?: number, places?: number) => string | undefined;
+/**
+ * Formatting a numberic like value into a string such as '1,000,000'
+ * @param val argv
+ * @param digits digits limitation which default is 2
+ * @param places rounding places limitation which default is equal to digits
+ * @param defaultVal string which default is ''
+ * @returns string
+ */
+export declare const moneyFormat: (val?: any, digits?: number, places?: number, defaultVal?: string) => string;
+/**
+ * Formatting with a positive/negative sign for a numberic value to a string such as '+1' or '-1', '0'
+ * @param val argv
+ * @param defaultVal string which default is ''
+ * @returns string
+ */
+export declare const signFormat: (val?: any, defaultVal?: string) => string;
