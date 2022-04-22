@@ -14,9 +14,16 @@ describe('Sort', () => {
     expect(sort(0.1236, 0.1235)).toEqual(1);
     expect(sort(-0.1235, 0.1235)).toEqual(-1);
     expect(sort(-0.1235, -0.1235)).toEqual(0);
-    expect(sort(-0.1236, -0.1235)).toEqual(1);
+    expect(sort(-0.1236, -0.1235)).toEqual(-1);
+    expect(sort(-0.1235, -0.1236)).toEqual(1);
+    expect(sort(-0.1236, '-0.1235')).toEqual(-1);
+    expect(sort('-0.1236', '-0.1235')).toEqual(-1);
     expect(sort(0.1235, -0.1235)).toEqual(1);
     expect(sort(0.1236, '0.1236Y')).toEqual(-1);
+    expect(sort(3655.0005, 16742.002)).toEqual(-1);
+    expect(sort('3655.0005', 16742.002)).toEqual(-1);
+    expect(sort(3655.0005, '16742.002')).toEqual(-1);
+    expect(sort('3655.0005', '16742.002')).toEqual(-1);
     expect(sort('F123.4', 'F223.4')).toEqual(-1);
     expect(sort('F223.4', 'F123.4')).toEqual(1);
     expect(sort('F123.4', '--')).toEqual(1);
