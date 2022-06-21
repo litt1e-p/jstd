@@ -2,7 +2,7 @@ import { arrayable, arrayUnique, arrValsCount, arrValCount, flat } from './array
 import { _btoa, _atob } from './buffer/base64';
 import { url2Blob, str2Buffer, buffer2Str } from './buffer/index';
 import { typeis, re } from './common/index';
-import { formatDate, timezoneDate, quarterable } from './date/index';
+import { formatDate, timezoneDate, quarterable, dateable } from './date/index';
 import { Types, TypesDesc, inEnum } from './enum/index';
 import { mappable } from './map/index';
 import { rangeRandom, numberic, guid, hash, numberFormat, moneyFormat, signFormat } from './math/index';
@@ -16,4 +16,4 @@ import { debounce } from './function/debounce';
 import { throttle } from './function/throttle';
 import { copy, copyArrayBuffer, copyDataView, copyDate, copyRegExp, copyTypedArray } from './function/copy';
 import { sort } from './function/sort';
-export { arrayable, arrayUnique, arrValsCount, arrValCount, flat, _btoa, _atob, url2Blob, str2Buffer, buffer2Str, typeis, re, formatDate, timezoneDate, quarterable, Types, TypesDesc, inEnum, mappable, rangeRandom, numberic, guid, hash, numberFormat, moneyFormat, signFormat, objectable, optional, extractable, assign, objReverse, isNil, isNull, isUndefined, isNumberic, sleep, settable, stringable, strLen, PromisePolyfill, debounce, throttle, copy, copyArrayBuffer, copyDataView, copyDate, copyRegExp, copyTypedArray, sort };
+export { arrayable, arrayUnique, arrValsCount, arrValCount, flat, _btoa, _atob, url2Blob, str2Buffer, buffer2Str, typeis, re, formatDate, timezoneDate, quarterable, dateable, Types, TypesDesc, inEnum, mappable, rangeRandom, numberic, guid, hash, numberFormat, moneyFormat, signFormat, objectable, optional, extractable, assign, objReverse, isNil, isNull, isUndefined, isNumberic, sleep, settable, stringable, strLen, PromisePolyfill, debounce, throttle, copy, copyArrayBuffer, copyDataView, copyDate, copyRegExp, copyTypedArray, sort };

@@ -29,7 +29,7 @@ import { Func, FrequencyFn, ThrottleOptions } from './interface'
  * @returns an new function or throw an error
  */
 export const throttle = function <F extends Func>(fn: F, time: number | string, options?: ThrottleOptions): Func | never {
-  if (typeis(fn) !== Types.function) {
+  if (typeis(fn) !== Types.function && typeis(fn) !== Types.asyncFunction) {
     throw new TypeError('Expected a function')
   }
   if (!isNumberic(time, true)) {

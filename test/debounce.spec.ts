@@ -45,4 +45,12 @@ describe('function - debounce cases', () => {
     expect(rs).toEqual(debounceRs)
   })
 
+  test('function - debounce - async function', async () => {
+    const fn = async (a: number, b: number) => a + b
+    const rs = await fn(1, 2)
+    const debounceFn = debounce(fn, 800, true)
+    const debounceRs = await debounceFn(1, 2)
+    expect(rs).toEqual(debounceRs)
+  })
+
 })

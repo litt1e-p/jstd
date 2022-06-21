@@ -57,5 +57,14 @@ describe('function - throttle cases', () => {
     expect(rs).toEqual(3)
     expect(throttleRs).toEqual(undefined)
   })
+
+  test('function - throttle - async function', async () => {
+    const fn = async (a: number, b: number) => a + b
+    const rs = await fn(1, 2)
+    const throttleFn = throttle(fn, 800)
+    const throttleRs = await throttleFn(1, 2)
+    expect(rs).toEqual(3)
+    expect(throttleRs).toEqual(undefined)
+  })
   
 })

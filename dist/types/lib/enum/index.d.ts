@@ -12,6 +12,7 @@ export declare enum TypesDesc {
     '[object Uint8Array]' = "uint8Array",
     '[object Object]' = "object",
     '[object Function]' = "function",
+    '[object AsyncFunction]' = "asyncFunction",
     '[object BigInt]' = "bigInt",
     '[object Date]' = "date",
     '[object WeakMap]' = "weakMap",
@@ -47,6 +48,7 @@ export declare enum Types {
     /** complex  */
     object = "object",
     function = "function",
+    asyncFunction = "asyncFunction",
     symbol = "symbol",
     arrayBuffer = "arrayBuffer",
     /** functional */

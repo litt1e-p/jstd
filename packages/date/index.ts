@@ -28,6 +28,16 @@ const formatNumber = (n: any) => {
 }
 
 /**
+ * To determine a var is Date type
+ * @param date var to determine
+ * @param validDate validDate equals true ? not invalid Date : Date, default is true
+ */
+export const dateable = function (date?: any, validDate = true): boolean {
+  if (typeis(date) !== Types.date) return false
+  return validDate ? date.toString() !== 'Invalid Date' : true
+}
+
+/**
  * Date format
  * @param date argv of type Date/String
  * @param format [Y, yyyy, M, MM, d, dd, h, hh, m, mm, s, ss] and [-/\s] separator supports, default is 'yyyy-MM-dd hh:mm:ss'

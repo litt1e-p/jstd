@@ -1,6 +1,6 @@
 {
   "name": "jstd",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "description": "js utilities lib",
   "config": {
     "libName": "jstd"
@@ -42,17 +42,17 @@
   },
   "homepage": "https://github.com/litt1e-p/jstd#readme",
   "dependencies": {
-    "core-js": "^3.21.1",
+    "core-js": "^3.23.2",
     "regenerator-runtime": "^0.13.9"
   },
   "peerDependencies": {
-    "core-js": "^3.21.1",
+    "core-js": "^3.23.2",
     "regenerator-runtime": "^0.13.9"
   },
   "devDependencies": {
-    "@types/jest": "^27.4.1",
-    "jest": "^27.5.1",
-    "ts-jest": "^27.1.4",
-    "typescript": "^4.6.3"
+    "@types/jest": "^28.1.2",
+    "jest": "^28.1.1",
+    "ts-jest": "^28.0.5",
+    "typescript": "^4.7.4"
   }
 }

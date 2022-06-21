@@ -1,4 +1,4 @@
-import { formatDate, timezoneDate } from '../'
+import { formatDate, timezoneDate, quarterable, dateable } from '../'
 
 describe('date - timezoneDate cases', () => {
   test('date - timezoneDate', () => {
@@ -58,4 +58,43 @@ describe('date - formatDate cases', () => {
     expect(formatDate(date, 'h:m:s d-M-Y')).toEqual('12:6:2 4-11-2020');
   });
   
+})
+
+describe('date - quarterable cases', () => {
+  test('date - quarterable - undefined', () => {
+    expect(quarterable('')).toEqual(undefined)
+    expect(quarterable('20')).toEqual(undefined)
+    expect(quarterable('2020Q1', 1, 'q')).toEqual(undefined)
+  })
+
+  test('date - quarterable - normal', () => {
+    expect(quarterable('2020Q1')).toEqual('2020Q1')
+    expect(quarterable('2020Q1', -1)).toEqual('2019Q4')
+    expect(quarterable('2020Q1', 3)).toEqual('2020Q4')
+    expect(quarterable('2020Q1', 4)).toEqual('2021Q1')
+    expect(quarterable('2020Q1', 7)).toEqual('2021Q4')
+    expect(quarterable('2020Q4', -4)).toEqual('2019Q4')
+    expect(quarterable('2020Q4', -8)).toEqual('2018Q4')
+  })
+})
+
+describe('date - dateable cases', () => {
+  test('date - dateable', () => {
+    expect(dateable()).toEqual(false)
+    expect(dateable(void 0, void 0)).toEqual(false)
+  })
+
+  test('date - dateable', () => {
+    const d = new Date('2022/06/20 15:05:28')
+    expect(dateable(d)).toEqual(true)
+    expect(dateable(d, true)).toEqual(true)
+    expect(dateable(new Date(628021800000))).toEqual(true)
+    expect(dateable(Date())).toEqual(false) // string
+    expect(dateable(Date.now())).toEqual(false) // number
+    expect(dateable('')).toEqual(false)
+    expect(dateable(void 0)).toEqual(false)
+    expect(dateable(null)).toEqual(false)
+    expect(dateable(new Date(''))).toEqual(false)
+    expect(dateable(new Date(''), false)).toEqual(true)
+  })
 })

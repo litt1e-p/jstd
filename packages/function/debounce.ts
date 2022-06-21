@@ -27,7 +27,7 @@ import { Func, FrequencyFn } from './interface'
  * @param time argv for debounce time(millisecond)
  */
 export const debounce = function <F extends Func>(fn: F, time: number | string, immediate = false): Func | never {
-  if (typeis(fn) !== Types.function) {
+  if (typeis(fn) !== Types.function && typeis(fn) !== Types.asyncFunction) {
     throw new TypeError('Expected a function')
   }
   if (!isNumberic(time, true)) {
