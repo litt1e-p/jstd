@@ -48,6 +48,14 @@ To Count the number of occurrences of an element in the array
 arrValCount<T>(array: any, key: T): number
 ```
 
+### 1.5 flat
+
+Flatten an array recursively up to the specified depth.
+
+```ts
+flat<T>(array: any, depth = Infinity): OptionalPropertyArray<T> 
+```
+
 ## 2. Buffer
 
 ### 2.1 url2Blob
@@ -94,6 +102,22 @@ Retrieve a date with specify timezone
 
 ```ts
 timezoneDate(year = 0, month = 0, day = 0, hour = 0, minute = 0, second = 0, timezone?: string): Date | undefined
+```
+
+### 3.3 dateable
+
+To determine a var is Date type
+
+```ts
+dateable(date?: any, validDate = true): boolean
+```
+
+### 3.4 quarterable
+
+Retrieve a quarter string with another quarter and delta quarters which are used to calculate
+
+```ts
+quarterable(quarter: any, delta = 0, separator = 'Q'): string | undefined
 ```
 ## 4. Enum
 
@@ -151,6 +175,45 @@ Formatting or rounding a value with digits limitation and rounding places limita
 numberic(val?: any, digits = 2, places?: number): number | undefined
 ```
 
+### 7.3 guid
+
+Generate a guid string randomly
+
+```ts
+guid(length = 8, salt = 'abcdefghijklmnopqrstuvwxyz0123456789'): string
+```
+
+### 7.4 hash
+
+Generate a hash string randomly
+
+```ts
+hash(): string
+```
+
+### 7.5 numberFormat
+
+Formatting or rounding a value with digits limitation and rounding places limitation
+
+```ts
+numberFormat(val?: any, digits = 2, places?: number): string | undefined
+```
+
+### 7.6 moneyFormat
+
+Formatting a numberic like value into a string such as '1,000,000'
+
+```ts
+moneyFormat(val?: any, digits = 2, places?: number, defaultVal = ''): string
+```
+
+### 7.7 signFormat
+
+Formatting with a positive/negative sign for a numberic value to a string such as '+1' or '-1', '0'
+
+```ts
+signFormat(val?: any, defaultVal = ''): string
+```
 ## 8. Object
 
 ### 8.1 objectable
@@ -253,4 +316,38 @@ To count the number of characters in a string
 
 ```ts
 strLen(str: any): number
+```
+
+## 12. Function
+
+### 12.1 copy
+
+Create a copy of a variable deeply or not
+
+```ts
+copy(obj: any, deep = true): any
+```
+
+### 12.2 debounce
+
+Debounce frequency for function execution
+
+```ts
+debounce<F extends Func>(fn: F, time: number | string, immediate = false): Func | never
+```
+
+### 12.3 throuttle
+
+Throttle frequency for function execution
+
+```ts
+throuttle<F extends Func>(fn: F, time: number | string, options?: ThrottleOptions): Func | never
+```
+
+### 12.4 sort
+
+Sort function for sorting array of numberic or not numberic values
+
+```ts
+sort(a: any, b: any, ignoreCase = false, locale = 'zh-Hans-CN')
 ```
