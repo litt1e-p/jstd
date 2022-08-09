@@ -92,7 +92,7 @@ describe('math testing', () => {
       expect(numberic(123.12)).toEqual(123.12)
     });
   
-    test('regexp - numberic - rounding-decimal', () => {
+    test('regexp - numberic - rounding-decimal - long', () => {
       expect(numberic(123.54)).toEqual(123.54)
       expect(numberic(-123.5456)).toEqual(-123.55)
       expect(numberic(-123.125)).toEqual(-123.13)
@@ -102,14 +102,14 @@ describe('math testing', () => {
       expect(numberic(-123.8057)).toEqual(-123.81)
       expect(numberic(-123.017)).toEqual(-123.02)
       expect(numberic(-1.01709820845050)).toEqual(-1.02)
-      expect(numberic(-101709820845050.407784574545745723)).toEqual(-101709820845050.41)
+      expect(numberic(-10170982084505.4077845745457457)).toEqual(-10170982084505.41)
     });
   
     test('regexp - numberic - rounding-decimal-options', () => {
       expect(numberic(123.54, 1)).toEqual(123.5)
       expect(numberic(123.5446, 3)).toEqual(123.545)
-      expect(numberic(-123.1445, 3, 3)).toEqual(-123.145)
-      expect(numberic(-123.1455, 2, 3)).toEqual(-123.15)
+      expect(numberic(-123.1445, 3)).toEqual(-123.145)
+      expect(numberic(-123.1455, 2)).toEqual(-123.15)
       expect(numberic(123.1245, 0)).toEqual(123)
       expect(numberic(-123.5257, 0)).toEqual(-124)
       expect(numberic(-123.9257, -1)).toEqual(-123.93)
@@ -136,14 +136,18 @@ describe('math testing', () => {
       expect(numberic('-123.8057')).toEqual(-123.81)
       expect(numberic('-123.017')).toEqual(-123.02)
       expect(numberic('-1.01709820845050')).toEqual(-1.02)
-      expect(numberic('-101709820845050.407784574545745723')).toEqual(-101709820845050.41)
+      expect(numberic('-10170982084505.407784574545745723')).toEqual(-10170982084505.41)
     });
   
     test('regexp - numberic - negative-rounding-decimal-options', () => {
       expect(numberic('123.54', 1)).toEqual(123.5)
       expect(numberic('123.5446', 3)).toEqual(123.545)
-      expect(numberic('-123.1445', 3, 3)).toEqual(-123.145)
-      expect(numberic('-123.1455', 2, 3)).toEqual(-123.15)
+      expect(numberic('-123.1445', 3)).toEqual(-123.145)
+      expect(numberic('-123.1455', 2)).toEqual(-123.15)
+      expect(numberic('0.0000000001', 2)).toEqual(0.00)
+      expect(numberic('9.405', 2)).toEqual(9.41)
+      expect(numberic('9.405', 3)).toEqual(9.405)
+      expect(numberic('9.405', 4)).toEqual(9.405)
       expect(numberic('123.1245', 0)).toEqual(123)
       expect(numberic('-123.5257', 0)).toEqual(-124)
       expect(numberic('-123.9257', -1)).toEqual(-123.93)
@@ -156,6 +160,7 @@ describe('math testing', () => {
       expect(numberFormat('123.1235', 3)).toEqual('123.124')
       expect(numberFormat('0.1235', 3)).toEqual('0.124')
       expect(numberFormat('-0.1235', 3)).toEqual('-0.124')
+      expect(numberFormat('9.405')).toEqual('9.41')
     });
 
     test('regexp - moneyFormat - places-decimal-options', () => {
@@ -167,6 +172,7 @@ describe('math testing', () => {
       expect(moneyFormat('123.45', 1)).toEqual('123.5')
       expect(moneyFormat('0.1235', 3)).toEqual('0.124')
       expect(moneyFormat('-0.1235', 3)).toEqual('-0.124')
+      expect(moneyFormat('9.405')).toEqual('9.41')
     });
 
     test('regexp - signFormat - places-decimal-options', () => {

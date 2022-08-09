@@ -7,11 +7,10 @@ export declare const rangeRandom: (min?: any, max?: any) => number;
 /**
  * Formatting or rounding a value with digits limitation and rounding places limitation
  * @param val argv
- * @param digits digits limitation which default is 2
- * @param places rounding places limitation which default is equal to digits
+ * @param places rounding places limitation which default is 2
  * @returns number | undefined
  */
-export declare const numberic: (val?: any, digits?: number, places?: number) => number | undefined;
+export declare const numberic: (val?: any, places?: number) => number | undefined;
 /**
  * Generate a guid string randomly
  * @param length length of guid, default: 8

@@ -3,7 +3,7 @@
  */
 declare type TypeArrayBuiltIn = Float32Array | Float64Array | Int8Array | Int16Array | Int32Array | Uint8Array | Uint16Array | Uint32Array | Uint8ClampedArray | BigInt64Array | BigUint64Array;
 /**
- * Creates a copy of a variable deeply or not
+ * Create a copy of a variable deeply or not
  * @param obj param to copy or deep copy
  * @param deep deep or not, default value is true
  * @returns a copied or deep copied variable

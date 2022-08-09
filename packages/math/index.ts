@@ -3,7 +3,7 @@
  * Created by litt1e-p
  *
  * The MIT License (MIT)
- * Copyright (c) 2020 litt1e-p
+ * Copyright (c) 2022 litt1e-p
  * Permission is hereby granted, free of charge, to any person obtaining a copy of this software
  * and associated documentation files (the "Software"), to deal in the Software without restriction,
  * including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense,
@@ -17,6 +17,7 @@
  * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 import { isNumberic } from '../regexp/index'
+import Decimal from './decimal'
 
 /**
  * Retrieve a random number with range limit, default is Math.random()
@@ -33,26 +34,26 @@ export const rangeRandom = function (min?: any, max?: any): number {
 /**
  * Formatting or rounding a value with digits limitation and rounding places limitation
  * @param val argv
- * @param digits digits limitation which default is 2
- * @param places rounding places limitation which default is equal to digits
+ * @param places rounding places limitation which default is 2
+ * @returns number | undefined
  */
-export const numberic = function (val?: any, digits = 2, places?: number): number | undefined {
+export const numberic = function (val?: any, places = 2): number | undefined {
   if (!isNumberic(val, void 0, false)) {
     return
   }
-  let t = +val
+  const t = +val
   const sign = Math.sign(t)
-  t = Math.abs(t)
-  const pad = isNumberic(digits, true) ? +(1 + Array(digits).fill(0).join('')) : 100
-  const pr = Math.round((t + Number.EPSILON) * pad) / pad
-  places = (isNumberic(places, true) ? places : digits) as number
-  return places > 0 ? +(sign * pr).toFixed(places) : pr * sign
+  places = (isNumberic(places, true) ? places : 2) as number
+  // const pad = isNumberic(digits, true) ? +(1 + Array(digits).fill(0).join('')) : 100
+  // const pr = Math.round((t + Number.EPSILON) * pad) / pad
+  // return places > 0 ? +(sign * pr).toFixed(places) : pr * sign
+  return new Decimal().round(Math.abs(t), places) * sign
 }
 
 /**
  * Generate a guid string randomly
- * @param length length of guid
- * @param salt salt of guid
+ * @param length length of guid, default: 8
+ * @param salt salt of guid, default: 'abcdefghijklmnopqrstuvwxyz0123456789'
  * @returns random string with length and salt limitation
  */
 export const guid = function (length = 8, salt = 'abcdefghijklmnopqrstuvwxyz0123456789'): string {
@@ -70,6 +71,7 @@ export const guid = function (length = 8, salt = 'abcdefghijklmnopqrstuvwxyz0123
 export const hash = function (): string {
   return ((Math.random() * 0xffffff) << 7).toString(16)
 }
+
 /**
  * Formatting or rounding a value with digits limitation and rounding places limitation
  * @param val argv

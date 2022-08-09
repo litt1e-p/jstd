@@ -23,7 +23,7 @@ export declare const arrValsCount: <T>(array: any) => NumberDict;
  */
 export declare const arrValCount: <T>(array: any, key: T) => number;
 /**
- * flatten an array recursively up to the specified depth.
+ * Flatten an array recursively up to the specified depth.
  * @param array
  * @param depth depth of recurrence default is Infinity
  */
