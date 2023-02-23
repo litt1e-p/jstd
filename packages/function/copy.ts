@@ -107,12 +107,12 @@ export const copy = function (obj: any, deep = true): any {
   if (TypedCopyMap[typeis(target) as string]) {
     return TypedCopyMap[typeis(target) as string](obj)
   }
-  if (arrayable(obj)) {
+  if (arrayable(obj, false)) {
     const cy: Array<any> = Array.prototype.constructor()
     obj.map((i: any) => cy.push(i))
     return deep ? cy.map((i: any) => copy(i)) : cy
   }
-  if (objectable(obj)) {
+  if (objectable(obj, false)) {
     const cy = { ...(obj as { [key: string]: any }) } as {
       [key: string]: any
     }

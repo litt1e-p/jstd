@@ -417,4 +417,29 @@ describe('Copy - cases', () => {
     expect(co).not.toBe(o)
   })
   
+  
+  test('Copy - proxy copy', () => {
+    type O = {
+      arr: Array<any>
+    }
+    const o: O = {
+      arr: [1, 2, 3]
+    }
+    const po = new Proxy(o, {})
+    const co = copy(po)
+    po.arr = [1, 2]
+    expect(co).not.toBe(po)
+  })
+
+  test('Copy - array with object copy', () => {
+    type O = {
+      arr: Array<any>
+    }
+    const o: Array<O> = [{
+      arr: []
+    }]
+    const co = copy(o)
+    co[0].arr[0] = 1
+    expect(co).not.toBe(o)
+  })
 })
