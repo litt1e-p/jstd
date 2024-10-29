@@ -18,6 +18,7 @@
  */
 import { typeis } from '../common/index'
 import { Types } from '../enum/index'
+import { objectable } from '../object/index'
 import { NumberDict, OptionalPropertyArray } from '../typing/index'
 
 /**
@@ -77,11 +78,12 @@ export const arrValCount = function <T>(array: any, key: T): number {
 }
 
 /**
- * flatten an array recursively up to the specified depth.
+ * Flatten an array recursively up to the specified depth.
  * @param array
  * @param depth depth of recurrence default is Infinity
+ * @param options configuration of tree-like object which contains a key of children, default is children
  */
-export const flat = function <T>(array: any, depth = Infinity): OptionalPropertyArray<T> {
+export const flat = function <T>(array: any, depth = Infinity, options = { children: 'children' }): OptionalPropertyArray<T> {
   let rs = Array.prototype.constructor()
   if (!arrayable(array, false)) {
     return array
@@ -91,7 +93,16 @@ export const flat = function <T>(array: any, depth = Infinity): OptionalProperty
     return Array.prototype.slice.call(array)
   }
   for (let i = 0, l = array.length >>> 0; i < l; i++) {
-    rs = rs.concat(flat(array[i], dp - 1))
+    const d = array[i]
+    if (objectable(d, false)) {
+      const { [options.children]: children, ...rest } = d
+      rs.push(rest)
+      if (arrayable(children)) {
+        rs = rs.concat(flat(children, dp - 1, options))
+      }
+    } else {
+      rs = rs.concat(flat(d, dp - 1, options))
+    }
   }
   return rs
 }

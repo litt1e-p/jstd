@@ -42,3 +42,56 @@ export const strLen = function (str: any): number {
   }
   return c
 }
+
+
+/**
+ * number to alphabet eg. 0 -> A/a, 1 -> B/b ...
+ * @param {*} n: number
+ * @param {*} upperCase boolean
+ * @returns string
+ */
+export const number2Alphabet = function (num: number, upperCase = true) {
+  return String.fromCharCode(+num + (upperCase ? 65 : 97))
+}
+
+/**
+ * alphabet to number eg. A/a -> 0, B/b -> 1 ...
+ * @param {*} a string
+ * @param {*} upperCase boolean
+ * @returns number
+ */
+export const alphabet2Number = function (a: string, upperCase = true) {
+  return !stringable(a, false) ? NaN : a.charCodeAt(0) - (upperCase ? 65 : 97)
+}
+
+/**
+ * serialize an object to encoded string
+ * @param {*} obj target object
+ * @returns string
+ */
+export const serialize = function (obj: any) {
+  let rs
+  try {
+    rs = btoa(unescape(encodeURIComponent(JSON.stringify(obj))))
+  } catch (error) {
+    console.error(`serialize failed:${error}`)
+    rs = ''
+  }
+  return rs
+}
+
+/**
+ * unserialize a string to object
+ * @param {*} str encoded string
+ * @returns object
+ */
+export const unserialize = function (str: string) {
+  let rs
+  try {
+    rs = JSON.parse(decodeURIComponent(escape(atob(str))))
+  } catch (error) {
+    console.error(`unserialize failed:${error}`)
+    rs = void 0
+  }
+  return rs
+}

@@ -30,3 +30,10 @@ export declare const assign: <T>(path: any, obj: OptionalPropertyObj<T>, val?: a
  * @param obj argv object
  */
 export declare const objReverse: (obj?: OptionalDict<any> | null) => OptionalDict<any> | null;
+/**
+ * compare two objects is equal by string-like
+ * @param obj1 target object1
+ * @param obj2 target object2
+ * @returns Boolean
+ */
+export declare const isEqualObj: (obj1?: OptionalDict<any> | null, obj2?: OptionalDict<any> | null) => any;

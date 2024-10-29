@@ -26,5 +26,8 @@ export declare const arrValCount: <T>(array: any, key: T) => number;
  * Flatten an array recursively up to the specified depth.
  * @param array
  * @param depth depth of recurrence default is Infinity
+ * @param options configuration of tree-like object which contains a key of children, default is children
  */
-export declare const flat: <T>(array: any, depth?: number) => OptionalPropertyArray<T>;
+export declare const flat: <T>(array: any, depth?: number, options?: {
+    children: string;
+}) => OptionalPropertyArray<T>;
